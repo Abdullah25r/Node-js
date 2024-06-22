@@ -19,8 +19,8 @@ function checkAuthenitcation(req,res,next){
     if(incomingPass == password){
             isAuthorized = true;
     }else{
-    res.send("invalid password");
-    res.sendFile(__dirname + "/index.html");
+    isAuthorized = false
+    
     }
     next()
 }
@@ -28,7 +28,7 @@ app.post("/submit",(req,res)=>{
     if (isAuthorized) {
         res.sendFile(__dirname + "/secret.html")
     }else
-     res.send("<h1>Invalid Pasword!!!</h1>")
+    res.sendFile(__dirname + "/index.html");
 })
 
 
