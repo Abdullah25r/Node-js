@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  :root {
+    --a: 0;
+  }
+  
+  a,
+  .song-buttons img,
+  .volume img,
+  .volume input,
+  .seekbar,
+  .song,
+  .song *,
+  .playlist,
+  .playlist * {
+    cursor: pointer;
+  }
+  
+  body {
+    background-color: black;
+    color: white;
+    display: flex;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 25%;
+  }
+  
+  #logo {
+    width: 100px;
+  }
+  
+  .sidebar img {
+    filter: invert(1);
+  }
+  
+  .sidebar-top,
+  .sidebar-bottom {
+    margin: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(22, 21, 21);
+  }
+  
+  .sidebar-top,
+  .heading {
+    font-weight: bold;
+  }
+  
+  .sidebar-top ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .sidebar-top ul img {
+    width: 20px;
+    margin-right: 8px;
+  }
+  
+  .sidebar-top ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar-bottom {
+    position: relative;
+    height: 70vh;
+  }
+  
+  .heading img {
+    width: 35px;
+    margin-right: 8px;
+  }
+  
+  .sidebar-bottom .heading {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    margin-top: 12px;
+    padding: 10px;
+  }
+  
+  .songs-list {
+    height: 50vh;
+    list-style: decimal;
+    overflow: auto;
+  }
+  
+  .songs-list .song {
+    font-size: 12px;
+    padding: 15px 5px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .song .song-info {
+    width: 50%;
+  }
+  
+  .song-info > span {
+    font-size: 10px;
+  }
+  
+  .sidebar-bottom .footer {
+    position: absolute;
+    bottom: 10px;
+  }
+  
+  .sidebar-bottom .footer ul {
+    display: flex;
+    gap: 10px;
+    bottom: 0;
+    font-size: 10px;
+    font-weight: normal;
+    list-style: none;
+  }
+  
+  .sidebar-bottom .footer ul li a {
+    color: gray;
+  }
+  
+  .main-content {
+    width: 75%;
+  }
+  
+  .main-content .header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-left: 12px;
+    padding: 30px;
+    background-color: rgb(32, 31, 31);
+  }
+  
+  .account-options #sign-up {
+    font-weight: bold;
+    text-decoration: none;
+    color: gray;
+    margin-right: 40px;
+  }
+  
+  .account-options #sign-up:hover {
+    color: white;
+    font-size: 1.02em;
+  }
+  
+  .account-options #log-in {
+    text-decoration: none;
+    color: black;
+    border-radius: 20px;
+    background-color: white;
+    padding: 10px 18px;
+    border: 2px solid gray;
+  }
+  
+  .account-options #log-in:hover {
+    font-weight: bold;
+  }
+  
+  .playlists-section {
+    margin-left: 12px;
+    background-color: rgb(22, 21, 21);
+    height: 80.5vh;
+    overflow: auto;
+    border-bottom-left-radius: 8px;
+  }
+  
+  .playlists-section .heading {
+    font-size: 2em;
+    padding: 20px;
+  }
+  
+  .playlists-section .playlists {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 0 5.05vw;
+  }
+  
+  .play-playlist {
+    width: 28px;
+    height: 28px;
+    background-color: #1fdf64;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 55px;
+    right: 17px;
+    opacity: var(--a);
+    transition: all 1s ease-out;
+  }
+  
+  .playlist {
+    width: 150px;
+    height: 182px;
+    background-color: rgb(44, 44, 44);
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.9s;
+  }
+  
+  .playlist:hover {
+    background-color: rgb(105, 103, 103);
+    --a: 1;
+  }
+  
+  .playlist img {
+    width: 132px;
+    margin: 8px;
+    margin-bottom: 0;
+    border-radius: 8px;
+  }
+  
+  .playlist-title,
+  .play-now {
+    font-weight: bold;
+  }
+  
+  .playlist span {
+    margin-left: 8px;
+  }
+  
+  .playlist-description {
+    font-size: 0.7em;
+    display: block;
+    margin-top: 3px;
+  }
+  
+  .play-bar {
+    filter: invert(1);
+    background-color: #e2d9d9;
+    width: 70vw;
+    border-radius: 8px;
+    height: 80px;
+    top: 82vh;
+    right: 1.5vw;
+    position: fixed;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .play-bar .first {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+  
+  .play-bar .song-time {
+    margin: 25px 8px;
+  }
+  
+  .play-bar .first .song-name {
+    width: 180px;
+    text-align: center;
+  }
+  
+  .play-bar .song-buttons,
+  .volume {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .play-bar .song-buttons img {
+    width: 30px;
+  }
+  
+  .seekbar {
+    height: 4px;
+    width: 98%;
+    background: black;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 15px;
+    margin: 6px;
+  }
+  
+  .circle {
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+    background-color: black;
+    position: relative;
+    bottom: 5px;
+    left: 0%;
+    transition: left 0.5s;
+  }
+  
+  .hamburger {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    filter: invert(1);
+    z-index: 1100;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 1027px) {
+    .sidebar {
+      display: none;
+      position: fixed;
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(-100%)
+    }
+  
+    .main-content{
+      width: 100%;
+    }
+  
+    .play-bar{
+      width: 95%;
+    }
+  
+    .first .song-name{
+      width: 100%;
+    }
+  
+    .play-bar .first{
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .first .volume{
+      display: none;
+    }
+  
+    .hamburger {
+      display: block; 
+    }
+  }
+  
+  /* For Webkit browsers (e.g., Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #333; /* Dark color for the thumb */
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #222; /* Dark color for the track */
+  }
